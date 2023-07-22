@@ -6,3 +6,5 @@ git config --global push.default simple
 
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/rsa_github
+
+#awesome work manohar"
