@@ -1,0 +1,15 @@
+-- Optimize input reads
+SET hive.input.format=org.apache.hadoop.hive.ql.io.CombineHiveInputFormat;
+SET mapreduce.input.fileinputformat.split.maxsize=268435456;  -- 256 MB
+SET mapreduce.input.fileinputformat.split.minsize=134217728;  -- 128 MB
+
+-- Optimize file output
+SET hive.exec.compress.output=true;
+SET hive.merge.mapfiles=true;
+SET hive.merge.mapredfiles=true;
+SET hive.merge.tezfiles=true;
+SET hive.merge.smallfiles.avgsize=16000000;     -- 16 MB
+SET hive.merge.size.per.task=268435456;         -- 256 MB
+SET hive.exec.compress.intermediate=true;
+SET mapreduce.output.fileoutputformat.compress=true;
+SET mapreduce.output.fileoutputformat.compress.codec=org.apache.hadoop.io.compress.SnappyCodec;
